@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class subject:
+class subject(models.Model):
     name=models.CharField(max_length=32)
     teaher=models.CharField(max_length=16)
     grade=models.IntegerField()
