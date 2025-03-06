@@ -3,8 +3,21 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title></title>
+    <title>test</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
   </head>
-  <body></body>
+  <body>
+    <h1 class="init_head">れこくらす</h1>
+    <br>
+    <P>学部を選択して下さい</P>
+    <br>
+    <p>学年を選択してください</p>
+    <form action="{% url 'init_template' %}" method="post">
+      {% csrf_token %}
+      {{major_form}}
+      {{}}
+      <button>test</button>
+    </form>
+  </body>
+
 </html>

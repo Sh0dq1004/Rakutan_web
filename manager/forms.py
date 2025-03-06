@@ -12,5 +12,6 @@ class major_select(forms.Form):
 
 class grade_select(forms.Form):
     data=[
-        (),
+        ("one","1年生"),
+        ("two","2年生")
     ]
