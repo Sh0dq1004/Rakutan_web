@@ -10,8 +10,8 @@
     <h1 class="init_head">れこくらす</h1>
     <form action="{% url 'init_template' %}" method="post">
       {% csrf_token %}
-      {{major_form}}
-      {{grade_form}}
+      <div>{{major_form}}</div>
+      <div>{{grade_form}}</div>
     </form>
   </body>
 
