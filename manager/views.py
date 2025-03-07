@@ -3,10 +3,9 @@ from . import forms
 
 # Create your views here.
 def init_template(request):
-    major_form=forms.major_select()
-    grade_form=forms.grade_select()
+    major_grade_form=forms.major_grade_select()
     context={
-        'major_form':major_form
+        'form':major_grade_form
     }
     if (request.method=="POST"):
         print(request.POST["choices"])
