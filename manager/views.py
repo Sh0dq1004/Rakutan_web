@@ -1,7 +1,37 @@
 from django.shortcuts import render
 from . import forms
+from .models import tire1_class, tire2_class
+
+import csv
 
 # Create your views here.
+def admin_template(request):
+    if (request.method=="POST"):
+        if "dbsort" in request.POST:
+            with open("tire1.csv", "r", encoding="utf-8") as f:
+                reader=csv.reader(f)
+                rows=[]
+                for i in reader:
+                    rows.append(i)
+                for row in rows:
+                    tire1_class.objects.create(
+                        name=row[0],
+                        teaher=row[1],
+                        term=row[2]
+                    )
+            with open("tire2.csv", "r", encoding="utf-8") as f:
+                reader=csv.reader(f)
+                rows=[]
+                for i in reader:
+                    rows.append(i)
+                for row in rows:
+                    tire2_class.objects.create(
+                        name=row[0],
+                        teaher=row[1],
+                        term=row[2]
+                    )
+    return render(request, 'admin.html')
+
 def init_template(request):
     major_grade_form=forms.major_grade_select()
     context={

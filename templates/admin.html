@@ -1,0 +1,16 @@
+{% load static %}
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>れこくらす</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="init_head">れこくらす</h1>
+    <form action="{% url 'admin_template' %}" method="post">
+      {% csrf_token %}
+        <button type="submit" name="dbsort">データベースを作成します</button>
+    </form>
+  </body>
+</html>
