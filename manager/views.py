@@ -26,9 +26,11 @@ def admin_template(request):
                     rows.append(i)
                 for row in rows:
                     tire2_class.objects.create(
-                        name=row[0],
-                        teaher=row[1],
-                        term=row[2]
+                        name=row[0].replace("\u3000",' '),
+                        teaher=row[1].replace("\u3000",' '),
+                        term=row[2].replace("\u3000",' '),
+                        grade=row[3].replace("\u3000",' '),
+                        major=row[4].replace("\u3000",' ')
                     )
     return render(request, 'admin.html')
 
