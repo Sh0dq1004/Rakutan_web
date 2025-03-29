@@ -1,0 +1,37 @@
+{% load static %}
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>れこくらす</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="init_head">れこくらす</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>ランク</th>
+            <th>クラス名</th>
+            <th>先生</th>
+          </tr>
+        </thead>
+        {% for model in t1_models %}
+          <tr>
+            <td>☆☆☆</td>
+            <td><a href="{% url 'more_template' 1 model.id%}">{{model.name}}</a></td>
+            <td>{{model.teaher}}</td>
+            <td>{{model.id}}</td>
+          </tr>
+        {% endfor %}
+        {% for model in t2_models %}
+          <tr>
+            <td>☆☆</td>
+            <td><a href="{% url 'more_template' 2 model.id%}">{{model.name}}</a></td>
+            <td>{{model.teaher}}</td>
+            <td>{{model.id}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+  </body>
+</html>

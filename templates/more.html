@@ -1,0 +1,21 @@
+{% load static %}
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>れこくらす</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="init_head">れこくらす</h1>
+    <table>
+        <tr><th>クラス名</th><td>{{ class_data.name }}</td></tr>
+        <tr><th>教授名</th><td>{{ class_data.teaher }}</td></tr>
+        <tr><th>授業時間</th><td>{{ class_data.term }}</td></tr>
+        <tr><th>学年</th><td>{{ class_data.grade }}</td></tr>
+        <tr><th>学部</th><td>{{ class_data.major }}</td></tr>
+        <tr><th>評価</th><td>{{ eval }}</td></tr>
+        <tr><th>内容</th><td>{{ detail }}</td></tr>
+    </table>
+  </body>
+</html>

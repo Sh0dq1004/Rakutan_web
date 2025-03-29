@@ -1,0 +1,145 @@
+{% load static %}
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>れこくらす</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="init_head">れこくらす</h1>
+
+    <form action="{% url 'home_template' %}" method="post">
+      {% csrf_token %}
+        <button type="list_" name="list_">リストで表示</button>
+        <button type="timeline" name="timeline">時間割で表示</button>
+    </form>
+    {% if list_true %}
+    <table>
+      <thead>
+        <tr>
+          <th>ランク</th>
+          <th>クラス名</th>
+          <th>先生</th>
+        </tr>
+      </thead>
+      {% for model in tire1_model %}
+        <tr>
+          <td>☆☆☆</td>
+          <td><a href="{% url 'more_template' 1 model.id%}">{{model.name}}</a></td>
+          <td>{{model.teaher}}</td>
+          <td>{{model.id}}</td>
+        </tr>
+      {% endfor %}
+      {% for model in tire2_model %}
+        <tr>
+          <td>☆☆</td>
+          <td><a href="{% url 'more_template' 2 model.id%}">{{model.name}}</a></td>
+          <td>{{model.teaher}}</td>
+          <td>{{model.id}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <form action="{% url 'home_template' %}" method="post">
+      {% csrf_token %}
+        <button type="spring" name="spring">前期</button>
+        <button type="summer" name="summer">後期</button>
+    </form>
+    {% if term_spring %}
+    <p>前期</p>
+    <table>
+      <tr>
+        <td><a href="{% url 'day_list_template' 1 1 1%}">月曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 1 2 1%}">火曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 1 3 1%}">水曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 1 4 1%}">木曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 1 5 1%}">金曜1限</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 1 1 2%}">月曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 1 2 2%}">火曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 1 3 2%}">水曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 1 4 2%}">木曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 1 5 2%}">金曜2限</a></td>
+      </tr>
+      <tr>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 1 1 3%}">月曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 1 2 3%}">火曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 1 3 3%}">水曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 1 4 3%}">木曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 1 5 3%}">金曜3限</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 1 1 4%}">月曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 1 2 4%}">火曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 1 3 4%}">水曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 1 4 4%}">木曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 1 5 4%}">金曜4限</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 1 1 5%}">月曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 1 2 5%}">火曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 1 3 5%}">水曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 1 4 5%}">木曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 1 5 5%}">金曜5限</a></td>
+      </tr>
+    </table>
+    {% else %}
+    <p>後期</p>
+    <table>
+      <tr>
+        <td><a href="{% url 'day_list_template' 2 1 1%}">月曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 2 2 1%}">火曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 2 3 1%}">水曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 2 4 1%}">木曜1限</a></td>
+        <td><a href="{% url 'day_list_template' 2 5 1%}">金曜1限</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 2 1 2%}">月曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 2 2 2%}">火曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 2 3 2%}">水曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 2 4 2%}">木曜2限</a></td>
+        <td><a href="{% url 'day_list_template' 2 5 2%}">金曜2限</a></td>
+      </tr>
+      <tr>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+        <td><a>昼</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 2 1 3%}">月曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 2 2 3%}">火曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 2 3 3%}">水曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 2 4 3%}">木曜3限</a></td>
+        <td><a href="{% url 'day_list_template' 2 5 3%}">金曜3限</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 2 1 4%}">月曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 2 2 4%}">火曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 2 3 4%}">水曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 2 4 4%}">木曜4限</a></td>
+        <td><a href="{% url 'day_list_template' 2 5 4%}">金曜4限</a></td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'day_list_template' 2 1 5%}">月曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 2 2 5%}">火曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 2 3 5%}">水曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 2 4 5%}">木曜5限</a></td>
+        <td><a href="{% url 'day_list_template' 2 5 5%}">金曜5限</a></td>
+      </tr>
+    </table>
+    {% endif %}
+    {% endif %}
+    
+  </body>
+</html>
